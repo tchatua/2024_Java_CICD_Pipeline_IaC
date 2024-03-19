@@ -1,0 +1,9 @@
+# Jenkins IaC
+a01_01_Jenkins_EC2/.terraform/
+a01_01_Jenkins_EC2/.terraform.lock.hcl
+a01_01_Jenkins_EC2/terraform.tfstate
+
+git.sh
+
+
+

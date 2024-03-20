@@ -1,4 +1,4 @@
 #!/bin/bash 
 git add .
-git commit -m "User Data added"
+git commit -m "Ansible TF code added"
 git push origin a01_Setup_Jenkins

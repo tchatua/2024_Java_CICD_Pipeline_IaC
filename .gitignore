@@ -1,9 +1,14 @@
+git.sh
+
 # Jenkins IaC
 a01_01_Jenkins_EC2/.terraform/
 a01_01_Jenkins_EC2/.terraform.lock.hcl
 a01_01_Jenkins_EC2/terraform.tfstate
 
-git.sh
+# Ansible IaC
+a01_02_Ansible_EC2/.terraform/
+a01_02_Ansible_EC2/.terraform.lock.hcl
+a01_02_Ansible_EC2/terraform.tfstate
 
 
 

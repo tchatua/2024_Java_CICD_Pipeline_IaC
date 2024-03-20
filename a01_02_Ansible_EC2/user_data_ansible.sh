@@ -8,6 +8,15 @@ hostnamectl set-hostname ansible-server
 # Crate ansible administrator user
 useradd ansadmin
 passwd ansadmin
+#
+sudo usermod -d /home/ansadmin ansadmin # for ubuntu (Alpha)
+sudo adduser --create-home username # for ubuntu (Alpha)
+# If Alpha do not word
+sudo mkdir -p /home/ansadmin
+sudo chown ansadmin:ansadmin /home/ansadmin
+sudo chmod 755 /home/ansadmin
+
+
 
 # Add that ansible user to sudoers file: edit the /etc/sudoers
 visudo
@@ -49,8 +58,18 @@ sudo su ansadmin
 # ######################################################
 
 sudo su -
-yum install python -y
-yum install python-pip -y
+# yum install python -y
+# yum install python-pip -y
+
+# Update Package Index
+sudo apt update
+sudo apt install python3
+# Optional: Set Python 3 as Default (Optional): By default, 
+#       the python command often refers to Python 2. If you want the python command 
+#       to refer to Python 3 instead, you can create a symbolic link:
+sudo ln -s /usr/bin/python3 /usr/bin/python
+apt install python3-pip
+
 pip install ansible
 mkdir /etc/ansible
 touch /etc/ansible/ansible.cfg
@@ -59,7 +78,5 @@ touch /etc/ansible/inventory
 # Go to GitHub repository ansible/ansible
 # github.com/tchatua/ansible/blob/devel/examples/ansible.cfg
 # 		Copy ansible.cfg URL and copy and paste the content in the /etc/ansible/ansible.cfg.
-# https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg
+https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg
 vim /etc/ansible/ansible.cfg
-
-

@@ -1,4 +1,4 @@
 #!/bin/bash 
 git add .
-git commit -m "Ansible installation userdate added"
+git commit -m "Maven and Tomcat EC2 terraform Code added"
 git push origin a01_Setup_Jenkins

@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo hostnamectl set-hostname Jenkins-Maven 
+
 # #######################################################
 #               Java Installation
 # #######################################################
@@ -65,3 +67,54 @@ sudo systemctl status jenkins
 # # #######################################################
 
 # cat /var/lib/jenkins/secrets/initialAdminPassword
+
+# # #######################################################
+# #               Install Maven 
+# # #######################################################
+
+# Downloading Apache Maven 3.9.6
+cd /opt/
+wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+tar -xvzf apache-maven-3.9.6-bin.tar.gz
+mv apache-maven-3.9.6 maven
+cd maven/bin
+./mvn -v
+# Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+# Maven home: /opt/maven
+# Java version: 17.0.10, vendor: Private Build, runtime: /usr/lib/jvm/java-17-openjdk-amd64
+# Default locale: en, platform encoding: UTF-8
+# OS name: "linux", version: "5.15.0-1055-aws", arch: "amd64", family: "unix"
+
+mvn -v
+# Command 'mvn' not found, but can be installed with:
+# apt install maven
+
+find / -name jvm
+# /usr/share/gdb/auto-load/usr/lib/jvm
+# /usr/lib/jvm
+# /usr/lib/debug/usr/lib/jvm
+
+# Setup Maven in the environment variables
+sudo vim /etc/profile.d/maven.sh
+# Add the following lines to the maven.sh file:
+export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+# Make the maven.sh file executable using the chmod command:
+sudo chmod +x /etc/profile.d/maven.sh
+# Execute the maven.sh script file with the source command to set up the new environment variables:
+source /etc/profile.d/maven.sh
+
+# Verify Maven Installation
+mvn -version
+# Apache Maven 3.9.6 (bc0240f3c744dd6b6ec2920b3cd08dcc295161ae)
+# Maven home: /opt/maven
+# Java version: 17.0.10, vendor: Private Build, runtime: /usr/lib/jvm/java-17-openjdk-amd64
+# Default locale: en, platform encoding: UTF-8
+# OS name: "linux", version: "5.15.0-1055-aws", arch: "amd64", family: "unix"
+
+```bash
+echo $PATH
+```
+/opt/maven/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin

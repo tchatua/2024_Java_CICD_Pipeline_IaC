@@ -80,3 +80,9 @@ touch /etc/ansible/inventory
 # 		Copy ansible.cfg URL and copy and paste the content in the /etc/ansible/ansible.cfg.
 https://github.com/ansible/ansible/blob/stable-2.9/examples/ansible.cfg
 vim /etc/ansible/ansible.cfg
+
+
+# To install sshpass on Ubuntu
+sudo apt update
+sudo apt install sshpass
+sshpass -V

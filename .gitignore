@@ -20,5 +20,10 @@ a01_04_Tomcat_EC2/.terraform/
 a01_04_Tomcat_EC2/.terraform.lock.hcl
 a01_04_Tomcat_EC2/terraform.tfstate
 
+# Tomcat IaC
+a01_05_Docker_Host_EC2/.terraform/
+a01_05_Docker_Host_EC2/.terraform.lock.hcl
+a01_05_Docker_Host_EC2/terraform.tfstate
+
 
 

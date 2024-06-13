@@ -43,10 +43,19 @@ docker --version
 # 8. Run Docker Without Sudo (Optional): By default, Docker requires sudo privileges to run commands. 
 #         If you want to use Docker as a non-root user, you can add your user to the docker group:
 ```bash
-sudo usermod -aG docker ${USER}
+sudo adduser --home /home/dockeradmin dockeradmin
+passwd dockeradmin
+# sudo usermod -aG docker ${USER}
+sudo usermod -aG docker dockeradmin
 ```
-
 # Remember to log out and back in or run su - ${USER} to apply the changes. After that, you should be able to run Docker commands without sudo.
+
+# ######################################################################################
+#           Enable password-based login: etdit `/etc/ssh/sshd_config`
+# ######################################################################################
+vim /etc/ssh/sshd_config
+    PasaswordAuthentication yes
+systemctl reload sshd
 
 # ######################################################################################
 #               How to use Tomcat Docker Container image
